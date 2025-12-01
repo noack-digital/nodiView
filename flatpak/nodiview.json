@@ -1,0 +1,47 @@
+{
+  "app-id": "com.nodiview.NodiView",
+  "runtime": "org.gnome.Platform",
+  "runtime-version": "44",
+  "sdk": "org.gnome.Sdk",
+  "command": "nodiview",
+  "finish-args": [
+    "--share=ipc",
+    "--socket=x11",
+    "--socket=wayland",
+    "--device=dri",
+    "--share=network",
+    "--filesystem=home",
+    "--filesystem=host"
+  ],
+  "modules": [
+    {
+      "name": "python3-pyvips",
+      "buildsystem": "simple",
+      "build-commands": [
+        "pip3 install --prefix=/app --no-deps pyvips"
+      ],
+      "sources": [
+        {
+          "type": "pip",
+          "name": "pyvips",
+          "url": "https://pypi.org/project/pyvips/"
+        }
+      ]
+    },
+    {
+      "name": "nodiview",
+      "buildsystem": "simple",
+      "build-commands": [
+        "pip3 install --prefix=/app -r requirements.txt",
+        "python3 setup.py install --prefix=/app"
+      ],
+      "sources": [
+        {
+          "type": "dir",
+          "path": ".."
+        }
+      ]
+    }
+  ]
+}
+

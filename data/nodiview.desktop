@@ -1,0 +1,14 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=nodiView
+Name[de]=nodiView
+Comment=Ein moderner Bildbetrachter mit integrierter Optimierung
+Comment[de]=Ein moderner Bildbetrachter mit integrierter Optimierung
+Exec=nodiview %F
+Icon=nodiview
+Terminal=false
+Categories=Graphics;Viewer;
+MimeType=image/jpeg;image/png;image/gif;image/webp;image/tiff;image/bmp;image/x-icon;image/x-ico;
+StartupNotify=true
+

@@ -1,0 +1,4 @@
+PyGObject>=3.42.0
+Pillow>=10.0.0
+pyvips>=2.2.0
+
