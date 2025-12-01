@@ -1,68 +1,61 @@
 name: nodiview
-version: '0.1.0'
-summary: Ein moderner Linux-Bildbetrachter mit integrierter Bildoptimierung
+base: core22
+version: git
+summary: Modern Linux image viewer with optimization capabilities
 description: |
-  nodiView ist ein moderner, schlanker Bildbetrachter für Linux, der die 
-  Kern-Funktionalitäten von IrfanView mit den Optimierungs-Features von RIOT kombiniert.
-  
+  nodiView is a feature-rich image viewer built with GTK4 and Libadwaita,
+  providing a modern interface for viewing, editing, and optimizing images.
+
   Features:
-  - Unterstützung für gängige Bildformate
-  - Zoom und Navigation
-  - Grundlegende Bearbeitung (Rotation, Spiegeln, Zuschneiden)
-  - Bildoptimierung (JPEG, PNG, GIF)
-  - Batch-Konvertierung und -Optimierung
+  - Image viewing with zoom controls and fullscreen mode
+  - Side-by-side comparison of original and optimized images
+  - Image optimization for JPEG, PNG, GIF formats
+  - Batch operations for multiple images
+  - Basic editing: rotation, mirroring, cropping
+  - Format conversion between different image types
+  - Multilingual support (EN, DE, ES, FR, UK)
 
 grade: stable
 confinement: strict
-base: core22
-
-architectures:
-  - build-on: amd64
-    run-on: [amd64, arm64]
-  - build-on: arm64
-    run-on: [arm64]
 
 apps:
   nodiview:
-    command: nodiview
-    desktop: usr/share/applications/nodiview.desktop
+    command: usr/bin/python3 $SNAP/bin/nodiview
+    extensions: [gnome]
     plugs:
       - home
-      - removable-media
-      - x11
+      - desktop
+      - desktop-legacy
       - wayland
-      - opengl
-      - network
+      - x11
+      - gsettings
+      - removable-media
+    environment:
+      PYTHONPATH: $SNAP/usr/lib/python3/dist-packages:$SNAP/lib/python3.10/site-packages
+      GI_TYPELIB_PATH: $SNAP/usr/lib/x86_64-linux-gnu/girepository-1.0:$SNAP/usr/lib/girepository-1.0
 
 parts:
   nodiview:
     plugin: python
     source: .
-    python-packages:
-      - requirements.txt
     build-packages:
       - python3-dev
-      - python3-pip
-      - libvips-dev
+      - python3-gi
+      - python3-gi-cairo
       - libgirepository1.0-dev
-      - gcc
+      - libvips-dev
       - pkg-config
       - libcairo2-dev
-      - libgdk-pixbuf2.0-dev
+      - libglib2.0-dev
     stage-packages:
-      - python3
       - python3-gi
-      - python3-pil
-      - libvips
-      - libgirepository-1.0-1
+      - python3-gi-cairo
       - gir1.2-gtk-4.0
       - gir1.2-adw-1
+      - libvips42
+      - libgirepository-1.0-1
       - libcairo2
-      - libgdk-pixbuf2.0-0
-      - shared-mime-info
-    organize:
-      data/*: usr/share/nodiview/data/
-    prime:
-      - -usr/lib/python3*/dist-packages/*.pyc
-      - -usr/lib/python3*/dist-packages/*.pyo
-
+      - libglib2.0-0
+    override-build: |
+      craftctl default
+      pip install --prefix=$CRAFT_PART_INSTALL Pillow pyvips

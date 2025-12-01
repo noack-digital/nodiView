@@ -85,6 +85,34 @@ _Coming soon_
 
 ## Installation
 
+### Distribution Packages
+
+#### Snap
+
+Install from the Snap Store (coming soon):
+```bash
+sudo snap install nodiview
+```
+
+Or build from source:
+```bash
+sudo snap install snapcraft --classic
+snapcraft
+sudo snap install ./nodiview_*.snap --dangerous
+```
+
+#### Flatpak
+
+Install from Flathub (coming soon):
+```bash
+flatpak install flathub org.noackdigital.nodiView
+```
+
+Or build from source:
+```bash
+flatpak-builder --force-clean --install build-dir org.noackdigital.nodiView.yml
+```
+
 ### System Dependencies
 
 nodiView requires several system packages. Install them using apt:

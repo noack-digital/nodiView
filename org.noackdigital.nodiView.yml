@@ -1,0 +1,57 @@
+app-id: org.noackdigital.nodiView
+runtime: org.gnome.Platform
+runtime-version: '47'
+sdk: org.gnome.Sdk
+command: nodiview
+
+finish-args:
+  - --share=ipc
+  - --socket=fallback-x11
+  - --socket=wayland
+  - --device=dri
+  - --filesystem=home
+  - --filesystem=xdg-pictures
+
+modules:
+  - name: libvips
+    buildsystem: meson
+    config-opts:
+      - -Dintrospection=enabled
+      - -Dgtk_doc=false
+    sources:
+      - type: archive
+        url: https://github.com/libvips/libvips/releases/download/v8.15.2/vips-8.15.2.tar.xz
+        sha256: a2ab2c93c0e0414c0f0e3d8d2cd8c0e8f4a4e1c5e6c14d0c11c2e2b3e9e7c0c6
+
+  - name: python3-pillow
+    buildsystem: simple
+    build-commands:
+      - pip3 install --verbose --exists-action=i --no-index --find-links="file://${PWD}"
+        --prefix=${FLATPAK_DEST} "Pillow>=10.0.0" --no-build-isolation
+    sources:
+      - type: file
+        url: https://files.pythonhosted.org/packages/cd/74/ad3d526f3bf7b6d3f408b73fde271ec69dfac8b81341a318ce825f2b3812/pillow-10.4.0.tar.gz
+        sha256: 166c1cd4d24309b30d61f79f4a9114b7b2313d7450912277855ff5dfd7cd4a06
+
+  - name: python3-pyvips
+    buildsystem: simple
+    build-commands:
+      - pip3 install --verbose --exists-action=i --no-index --find-links="file://${PWD}"
+        --prefix=${FLATPAK_DEST} "pyvips>=2.2.0" --no-build-isolation
+    sources:
+      - type: file
+        url: https://files.pythonhosted.org/packages/02/88/e564c8644b17c00496d8c02b2e485849fb342d222f804cb86c01a0fae84a/pyvips-2.2.3.tar.gz
+        sha256: 455dc45a33d5c5eb8e4c9d9a6c3a88aa72f4474f49aac3b8c271e95c0a0aa08d
+
+  - name: nodiview
+    buildsystem: simple
+    build-commands:
+      - pip3 install --verbose --exists-action=i --no-index --find-links="file://${PWD}"
+        --prefix=${FLATPAK_DEST} . --no-build-isolation
+      - install -Dm644 data/nodiview.desktop ${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.desktop
+      - install -Dm644 data/icons/nodiview.svg ${FLATPAK_DEST}/share/icons/hicolor/scalable/apps/${FLATPAK_ID}.svg
+      - install -Dm644 data/icons/nodiview.png ${FLATPAK_DEST}/share/icons/hicolor/128x128/apps/${FLATPAK_ID}.png
+      - install -Dm644 data/nodiview.appdata.xml ${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.appdata.xml
+    sources:
+      - type: dir
+        path: .
