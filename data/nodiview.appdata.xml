@@ -36,6 +36,12 @@
     <screenshot type="default">
       <caption>Main window with image viewer</caption>
       <caption xml:lang="de">Hauptfenster mit Bildbetrachter</caption>
+      <image>https://raw.githubusercontent.com/noack-digital/nodiView/main/data/screenshots/main-window.png</image>
+    </screenshot>
+    <screenshot>
+      <caption>Image optimization with side-by-side comparison</caption>
+      <caption xml:lang="de">Bildoptimierung mit Vergleichsansicht</caption>
+      <image>https://raw.githubusercontent.com/noack-digital/nodiView/main/data/screenshots/optimization-view.png</image>
     </screenshot>
   </screenshots>
 
