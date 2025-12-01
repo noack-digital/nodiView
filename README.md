@@ -303,7 +303,7 @@ This project is licensed under the GNU General Public License v3.0 - see the [LI
 ## Acknowledgments
 
 - Built with [GTK4](https://www.gtk.org/) and [Libadwaita](https://gnome.pages.gitlab.gnome.org/libadwaita/)
-- Image processing powered by [libvips](https://libvips.github.io/libvips/) and [Pillow](https://python-pillow.org/)
+- Image processing powered by [libvips](https://libvips.github.io/libvips/) and [Pillow](https://pypi.org/project/pillow/)
 - Icons from [GNOME Icon Library](https://gitlab.gnome.org/Teams/Design/icon-library)
 
 ## Author
