@@ -45,3 +45,14 @@ Thumbs.db
 .pytest_cache/
 .coverage
 htmlcov/
+
+# Snap build artifacts
+*.snap
+prime/
+stage/
+*.snap-build/
+
+# Flatpak build artifacts
+.flatpak-builder/
+build-dir/
+repo/
