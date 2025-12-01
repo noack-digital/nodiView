@@ -2,13 +2,17 @@
 Version=1.0
 Type=Application
 Name=nodiView
-Name[de]=nodiView
-Comment=Ein moderner Bildbetrachter mit integrierter Optimierung
-Comment[de]=Ein moderner Bildbetrachter mit integrierter Optimierung
+Comment=Modern image viewer with integrated optimization
+Comment[de]=Moderner Bildbetrachter mit integrierter Optimierung
+Comment[es]=Visor de imágenes moderno con optimización integrada
+Comment[fr]=Visionneuse d'images moderne avec optimisation intégrée
+Comment[uk]=Сучасний переглядач зображень з вбудованою оптимізацією
 Exec=nodiview %F
-Icon=nodiview
+Icon=org.noackdigital.nodiView
 Terminal=false
-Categories=Graphics;Viewer;
+Categories=Graphics;Viewer;GTK;
 MimeType=image/jpeg;image/png;image/gif;image/webp;image/tiff;image/bmp;image/x-icon;image/x-ico;
 StartupNotify=true
+Keywords=image;viewer;photo;picture;optimize;
+Keywords[de]=Bild;Betrachter;Foto;Optimierung;
 

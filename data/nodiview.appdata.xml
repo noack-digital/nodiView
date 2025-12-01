@@ -1,36 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop-application">
-  <id>com.nodiview.NodiView</id>
+  <id>org.noackdigital.nodiView</id>
   <metadata_license>CC0-1.0</metadata_license>
-  <project_license>GPL-3.0</project_license>
+  <project_license>GPL-3.0-or-later</project_license>
   <name>nodiView</name>
-  <summary>Ein moderner Bildbetrachter mit integrierter Optimierung</summary>
+  <name xml:lang="de">nodiView</name>
+
+  <summary>Modern image viewer with integrated optimization</summary>
+  <summary xml:lang="de">Moderner Bildbetrachter mit integrierter Optimierung</summary>
+
   <description>
     <p>
-      nodiView ist ein moderner, schlanker Bildbetrachter für Linux, der die 
-      Kern-Funktionalitäten von IrfanView mit den Optimierungs-Features von RIOT kombiniert.
+      nodiView is a modern, lightweight image viewer for Linux built with GTK4 and Libadwaita,
+      providing a clean interface for viewing, editing, and optimizing images.
     </p>
+    <p xml:lang="de">
+      nodiView ist ein moderner, schlanker Bildbetrachter für Linux, gebaut mit GTK4 und Libadwaita,
+      der eine übersichtliche Oberfläche zum Betrachten, Bearbeiten und Optimieren von Bildern bietet.
+    </p>
+
     <p>Features:</p>
     <ul>
-      <li>Unterstützung für gängige Bildformate</li>
-      <li>Zoom und Navigation</li>
-      <li>Grundlegende Bearbeitung (Rotation, Spiegeln, Zuschneiden)</li>
-      <li>Bildoptimierung (JPEG, PNG, GIF)</li>
-      <li>Batch-Konvertierung und -Optimierung</li>
+      <li>Support for common image formats (JPEG, PNG, GIF, WebP, TIFF, BMP)</li>
+      <li>Zoom controls and fullscreen mode</li>
+      <li>Side-by-side comparison of original and optimized images</li>
+      <li>Image optimization for JPEG, PNG, and GIF formats</li>
+      <li>Basic editing: rotation, mirroring, cropping</li>
+      <li>Batch operations for multiple images</li>
+      <li>Format conversion between different image types</li>
+      <li>Multilingual support (English, German, Spanish, French, Ukrainian)</li>
     </ul>
   </description>
+
   <screenshots>
     <screenshot type="default">
-      <caption>Hauptfenster</caption>
+      <caption>Main window with image viewer</caption>
+      <caption xml:lang="de">Hauptfenster mit Bildbetrachter</caption>
     </screenshot>
   </screenshots>
-  <url type="homepage">https://github.com/nodiview/nodiview</url>
+
+  <url type="homepage">https://github.com/noack-digital/nodiView</url>
+  <url type="bugtracker">https://github.com/noack-digital/nodiView/issues</url>
+
+  <provides>
+    <binary>nodiview</binary>
+  </provides>
+
+  <content_rating type="oars-1.1" />
+
   <releases>
-    <release version="0.1.0" date="2024-01-01">
+    <release version="0.1.0" date="2025-12-01">
       <description>
-        <p>Erste Veröffentlichung</p>
+        <p>Initial release</p>
+        <p xml:lang="de">Erste Veröffentlichung</p>
+        <ul>
+          <li>Image viewing with zoom and navigation</li>
+          <li>Image optimization for JPEG, PNG, GIF</li>
+          <li>Basic editing tools</li>
+          <li>Batch processing</li>
+          <li>GTK4 and Libadwaita interface</li>
+        </ul>
       </description>
     </release>
   </releases>
+
+  <developer_name>noack-digital</developer_name>
 </component>
 
