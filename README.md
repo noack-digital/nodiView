@@ -311,7 +311,3 @@ This project is licensed under the GNU General Public License v3.0 - see the [LI
 **noack-digital**
 - Website: [https://noack-digital.de](https://noack-digital.de)
 - GitHub: [@noack-digital](https://github.com/noack-digital)
-
----
-
-🤖 Developed with [Claude Code](https://claude.com/claude-code)
