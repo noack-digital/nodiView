@@ -1,4 +1,5 @@
-PyGObject>=3.42.0
+# PyGObject is installed via system packages (python3-gi)
+# See installation instructions in README.md
 Pillow>=10.0.0
 pyvips>=2.2.0
 
